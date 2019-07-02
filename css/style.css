@@ -54,15 +54,19 @@ body {
   left: 50%;
   /* background-color: red; */
   transform: translate(-50%, -50%); /* this is in relation to the element it self*/
+
+  text-align: center; /* to move discover btn(inline-block) to center */
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
 
+
   backface-visibilty: hidden; 
   /* if our heading-primary text is shaky after animation is done */
   /* backface-visibility: hidden; will fix that shaky caused because of  the entire div box but no one knows why it happens*/
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -135,3 +139,29 @@ body {
 
   }
 }
+/* pseudo classes to style element on special conditions */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s; /* all properties are enabled :: transition statement has to be on initial state! */
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2); /* x, y, blur, color */
+}
+/* active == when clicked */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2); /* x, y, blur, color */
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
