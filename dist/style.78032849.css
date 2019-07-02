@@ -1,0 +1,211 @@
+/*
+ *******COLORS********
+ * Light green: #7ed56f 
+ * Medium green: #55c57a
+ * Dark green: #28b485
+ */
+
+/* normalize
+ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*
+ *  we select body to use power of inheritance 
+ */
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  padding: 30px; /* padding is not inherited */
+}
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(
+  120deg, 
+  rgba(115, 229, 111, 0.8),
+  rgba(40, 180, 133, 0.8)
+  ),
+  url(/hero.3ad8264a.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);  /* goes clock wise from left top */
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px; /* reference is his parent element who's position is set to relative */
+  left: 40px;
+}
+
+.logo {
+  height: 35px; /* width will be automatically figured out by the browser */
+}
+
+.text-box {
+  position: absolute;
+  top: 40%; /* this percentages are in relation to parent element */
+  left: 50%;
+  /* background-color: red; */
+  transform: translate(-50%, -50%); /* this is in relation to the element it self*/
+
+  text-align: center; /* to move discover btn(inline-block) to center */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+
+
+  backface-visibilty: hidden; 
+  /* if our heading-primary text is shaky after animation is done */
+  /* backface-visibility: hidden; will fix that shaky caused because of  the entire div box but no one knows why it happens*/
+  margin-bottom: 60px;
+}
+
+.heading-primary-main {
+  display: block; 
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+
+  /* apply animation */
+  /* we need just two properties ->animation-name & animation-duration <- */
+  animation-name: moveInLeft;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  /* animation-timing-function ref: https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function */
+  /* animation-iteration-count: 3; */
+  /* animation-delay: 1s; */
+}
+
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+
+  /* short hand animation peroperty */
+  animation: moveInRight 1s ease-out;
+}
+
+
+
+
+
+/* there's two animation in css transition & animation with keyframe; */
+@keyframes moveInLeft {
+  /* 0% is the initial state */
+  /* 100% is the final state */
+
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+
+  80% {
+    transform: translateX(5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+  }
+}
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+
+  }
+
+  80% {
+    transform: translateX(-5px); 
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+
+  }
+}
+
+@keyframes moveInBottm {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+/* pseudo classes to style element on special conditions */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s; /* all properties are enabled :: transition statement has to be on initial state! */
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.2); /* x, y, blur, color */
+}
+
+/* active == when clicked */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0,0,0,.2); /* x, y, blur, color */
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* pseudo element */
+.btn::after {
+  content: ""; /* we have to specify it's content otherwise it wont appear */
+  display: inline-block;
+  height: 100%; /* `after` sudo element basically treated as child element */
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+.btn-white::after {
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+
+  animation: moveInBottm .5s ease-out .75s; /* animation's name, duration, timing-function, delay */
+  animation-fill-mode: backwards; /* before animation start initial state will be applied with 0%'s properties */
+}
+
+
+/*# sourceMappingURL=/style.78032849.css.map */
