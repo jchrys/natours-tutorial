@@ -139,6 +139,18 @@ body {
 
   }
 }
+
+@keyframes moveInBottm {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
 /* pseudo classes to style element on special conditions */
 .btn:link,
 .btn:visited {
@@ -148,12 +160,14 @@ body {
   display: inline-block;
   border-radius: 100px;
   transition: all .2s; /* all properties are enabled :: transition statement has to be on initial state! */
+  position: relative;
 }
 
 .btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0,0,0,.2); /* x, y, blur, color */
 }
+
 /* active == when clicked */
 .btn:active {
   transform: translateY(-1px);
@@ -165,3 +179,30 @@ body {
   color: #777;
 }
 
+/* pseudo element */
+.btn::after {
+  content: ""; /* we have to specify it's content otherwise it wont appear */
+  display: inline-block;
+  height: 100%; /* `after` sudo element basically treated as child element */
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+.btn-white::after {
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+
+  animation: moveInBottm .5s ease-out .75s; /* animation's name, duration, timing-function, delay */
+  animation-fill-mode: backwards; /* before animation start initial state will be applied with 0%'s properties */
+}
