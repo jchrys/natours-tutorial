@@ -15,10 +15,11 @@ body {
   margin-bottom: 6rem;
 
   &--main {
-    display: block;
+    display: inline-block;
     font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 3.5rem;
+    letter-spacing: 3.5rem; // letter-spacing is applied right side of the chracter
+    text-indent: 3.5rem; // so we add text-indent to center the text
 
     animation-name: moveInLeft;
     animation-duration: 1s;
@@ -26,10 +27,11 @@ body {
   }
 
   &--sub {
-    display: block;
+    display: inline-block;
     font-size: 2rem;
     font-weight: 700;
     letter-spacing: 1.75rem;
+    text-indent: 1.75rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;

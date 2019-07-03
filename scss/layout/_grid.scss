@@ -1,6 +1,6 @@
 .row {
   max-width: $grid-width; // take up 1140px if available, 1140px is standard
-  background-color: #eee;
+  //background-color: #eee;
   margin: 0 auto; // center row
 
   &:not(:last-child) { // all rows except the last one
@@ -37,6 +37,3 @@
     width: calc(((100% - #{$gutter-horizontal}) / 4) + #{$gutter-horizontal}*2);
   }
 }
-
-
-
