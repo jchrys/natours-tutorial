@@ -6,7 +6,8 @@
   &:not(:last-child) { // all rows except the last one
     margin-bottom: $gutter-vertical;
   }
-
+  
+  @include clearfix;
   [class^="col-"] { // select all classes that start with "col-"
     //background-color: orangered;
     float: left;
