@@ -14,6 +14,7 @@
     border-bottom: 3px solid transparent;
     width: 90%;
     display: block;
+    transition: all .3s ease;
     &:focus {
       // when you set outline:none to focus, u better use box-shadow & border bottom
       // for those who use only a keyboard for web
