@@ -1,0 +1,36 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  transform: skewX(-12deg); // we didn't use universal direct child selector here
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    //background-color: orangered;
+    float: left;
+    -webkit-shape-outside: circle(50% at 50% 50%); // chrome and safari need webkit prefix(radius at center X  Y)
+    shape-outside: circle(50% at 50% 50%); // (radius at center X  Y)
+    //shape-outside property only define where the element float around
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg); 
+  }
+
+  // image width || height responsive design alway need a width no exception
+  
+  &__img {
+    height: 100%; 
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+  }
+  
+}
