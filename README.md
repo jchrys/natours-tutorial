@@ -1,4 +1,4 @@
-# This tutorials are FROM
+# This tutorial is FROM
 https://github.com/zolkocarbon/Udemy_Advanced_CSS_Natours
 ## [Natours](https://rafgarciaa.github.io/Natours/)
 A mockup landing page for a travel agency startup. This coding exercise capitalizes on the capabilities of HTML and CSS.
